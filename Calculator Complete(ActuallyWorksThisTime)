@@ -24,14 +24,14 @@ Keypad myKeypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
 boolean valOnePresent = false;
 boolean next = false;
 boolean final = false;
-String num1, num2;
-int ans;
+String num1, num2; //2 numbers are considered strings
+int ans;   //declares type of answer
 char op;
 
 void setup(){
   lcd.begin(16,2);
-  lcd.setCursor(2,0);
-  lcd.print("Let's Get It!");
+  lcd.setCursor(0,0);
+  lcd.print("Let's Calculate!");
   delay(2500);
   lcd.clear(); //clears the LCD screen and positions the cursor in the upper-left corner. 
 }    
@@ -64,16 +64,16 @@ void loop(){
   }
 
   else if (final == true && key != NO_KEY && key == '='){
-    if (op == '+'){
+    if (op == '+'){ // adition operation
       ans = num1.toInt() + num2.toInt();
     }
-    else if (op == '-'){
+    else if (op == '-'){ // subtraction operation
       ans = num1.toInt() - num2.toInt();
     }
-    else if (op == '*'){
+    else if (op == '*'){ // multiplication operation
       ans = num1.toInt() * num2.toInt();
     }
-    else if (op == '/'){
+    else if (op == '/'){ // division operation
       ans = num1.toInt() / num2.toInt();
     }    
       lcd.clear();
@@ -92,3 +92,6 @@ void loop(){
     op = ' ';
   }
 }    
+
+//Code Used by http://www.vathsav.com/post/arduino_calculator.html
+//Most code was Edited
